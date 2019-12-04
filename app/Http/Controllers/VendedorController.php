@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Product;
+
+class VendedorController extends Controller
+{
+    public function products(){
+    	$products = Product::with('marca','indumentaria','genero','reviews')
+    		->paginate(12);
+        return view('vendedores.products',compact('products'));
+    }
+}

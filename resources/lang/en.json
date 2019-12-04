@@ -1,0 +1,34 @@
+{
+	"Socialite": "Log in with Socialite",
+	"Inicio de sesión cancelado": "Login canceled",
+	"Cerrar sesión": "Logout",
+	"Mi perfil":"Mi profile",
+	"Mensaje informativo": "Informative message",
+	"Iniciar sesión": "Login",
+	"Recuérdame":"Remember Me",
+	"¿Olvidaste tu contraseña?":"Forgot Your Password?",
+	"Registrarme": "Register",
+	"Crear producto": "Create product",
+	"Administrar productos": "Manage products" ,
+	"Administrar pedidos": "Manage orders",
+	"Administrar clientes": "Manage clients",
+	"Administrar vendedores": "Manage sellers",
+	"Mi perfil": "My profile",
+	"Mi cuenta": "My account",
+	"Mis pedidos": "My orders",
+	"Accede a cualquier indumentaria": "Access any clothing",
+
+	"Mira más": "Look more",
+	"También te sugerimos": "We also suggest you",
+
+
+	"Producto cargado correctamente": "Product loaded correctly",
+
+	"Carrito de compra": "Shopping cart",
+
+
+	"Se ha actualizado correctamente": "It has been updated correctly",
+	"Se ha eliminado correctamente":"It has been removed correctly",
+	"Error al eliminar":"Error deleting"
+
+}
