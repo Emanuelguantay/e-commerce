@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Product_talles;
+use App\Marca;
+use App\Indumentaria;
 
 class OrderController extends Controller
 {
@@ -19,20 +22,30 @@ class OrderController extends Controller
 
 
     public function show($id){
-    	$orderDetail = Order::find($id)->load('order_Lines');
-    	/*#attributes: array:8 [▼
-            "id" => 2
-            "order_id" => 5
-            "product_talle_id" => 10
-            "product_price" => "6"
-            "qty" => 3
-            "status" => "PENDING"
-            "created_at" => "2019-12-04 00:16:26"
-            "updated_at" => "2019-12-04 00:16:26"
-          ] */
-        //TODO: Cargar el detalle de la orden
-        dd($orderDetail);
-        return view('order.orderdetail', compact('orderDetail'));
-    	
+    	$order = Order::find($id)->load('order_Lines');
+
+    	$orderlines = $order->order_Lines;
+    	foreach($orderlines as $orderline){
+    		//dd($orderline);
+    		$productTalle = Product_talles::find($orderline->product_talle_id);
+    		$productTalle->load([
+    		'product' => function($q) {
+    			$q->select('id','name','description','marca_id','indumentaria_id');
+    		},
+    		'talle' => function($q){
+    			$q->select('id','name');
+    		}
+    		])->get();
+    		
+    		$marca = Marca::find($productTalle->product->marca_id);
+    		$orderline->marca = $marca->name;
+
+    		$indumentaria = indumentaria::find($productTalle->product->indumentaria_id);
+    		$orderline->indumentaria = $indumentaria->name;
+
+    		$orderline->productTalle = $productTalle;
+    		//dd($orderline);
+    	}
+        return view('order.orderdetail', compact('order'));
     }
 }

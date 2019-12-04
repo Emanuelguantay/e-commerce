@@ -10,4 +10,8 @@ class Product_talles extends Model
     	//un detalle pertenece a un producto determinado
         return $this->belongsTo(Talle::class);
     }
+
+    public function product(){
+    	return $this->belongsTo(Product::class)->select('id','name');
+    }
 }

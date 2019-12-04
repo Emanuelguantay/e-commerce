@@ -25,7 +25,7 @@
           <tr>
             <td>{{$orderData->id}}</td>
             <td>{{$orderData->total}}</td>
-            <td>{{$orderData->created_at}}</td>
+            <td>{{$orderData->created_at->format('d/m/Y')}}</td>
             <td>
                 <!--<a href="{{action('OrderController@show', $orderData->id)}}" class="btn btn-success edit"> Ver</a>-->
                 <a href="{{ route('order.detail', ['id' => $orderData->id]) }}" class="btn btn-success edit"> Ver</a>

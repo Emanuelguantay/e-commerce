@@ -120,4 +120,8 @@ class Product extends Model
             ->limit(6)
             ->get();
     }
+
+    public function product_talles () {
+        return $this->hasMany(Product_talle::class);
+    }
 }
