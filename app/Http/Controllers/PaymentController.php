@@ -156,7 +156,7 @@ class PaymentController extends Controller
         }
         //Crear Orden
         $order = Order::create([
-            'user_id' => auth()->user()->order->id,
+            'user_id' => auth()->user()->id,
             'total' => $subtotal
         ]);
         

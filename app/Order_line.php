@@ -34,8 +34,12 @@ class Order_line extends Model
         'order_id','product_talle_id','product_price','qty',
     ];
     
-    public function product () {
+    public function product_talles () {
     	//un detalle pertenece a un producto determinado
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product_talles::class);
+    }
+
+    public function orders(){
+    	return $this->belongsTo(Order::class);
     }
 }

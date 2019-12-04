@@ -25,7 +25,7 @@ class Order extends Model
     ];
 
 
-    public function orderLines () {
+    public function order_Lines () {
         return $this->hasMany(Order_line::class);
     }
     //TOda las orderlines que tiene la orden

@@ -103,3 +103,7 @@ Route::resource('/indumentaria', 'IndumentariaController');
 Route::get('/productsize/{id}','ProductSizeController@index')->name('productsize.index');
 Route::resource('/productsize', 'ProductSizeController');
 
+
+Route::get('/order','OrderController@index')->name('order.index');
+Route::get('/order/{id}','OrderController@show')->name('order.detail');
+
