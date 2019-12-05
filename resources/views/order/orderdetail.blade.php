@@ -21,6 +21,13 @@
         </div>
       </div>
     </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Generar Pdf
+    </button>
+
+    <br></br>
+
   <!-- Table table-bordered -->
     <table id="datatable" class="table table-dark">
       <thead>
@@ -48,6 +55,10 @@
         @endforeach
       </tbody>
     </table>
+
+
+    <hr> <p> <a href="{{route('order.pdf')}}" class="btn btn-
+    sm btn-primary"> Descargar productos en PDF </a> </p>
      
 	</div>
 

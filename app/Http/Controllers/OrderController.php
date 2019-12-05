@@ -8,6 +8,7 @@ use App\Product_talles;
 use App\Marca;
 use App\Indumentaria;
 
+
 class OrderController extends Controller
 {
     public function index()
@@ -36,7 +37,7 @@ class OrderController extends Controller
     			$q->select('id','name');
     		}
     		])->get();
-    		
+
     		$marca = Marca::find($productTalle->product->marca_id);
     		$orderline->marca = $marca->name;
 
@@ -48,4 +49,13 @@ class OrderController extends Controller
     	}
         return view('order.orderdetail', compact('order'));
     }
+
+
+    public function pdf() {
+		$orders = Order::all();
+		
+		//dd($orders);
+		$pdf = \PDF::loadView('order.pdfOrder', compact('orders'));
+		return $pdf->download('listado.pdf');
+	}
 }
