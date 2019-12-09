@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $this->sendRegisterMail($user);
+        return $user;
+        
+    }
+
+    public function sendRegisterMail(User $user) {
+      $data = array('name'=>$user->name,
+                    'email'=>$user->email);
+      Mail::send('mail.sendWelcome', $data, function($message) use ($data) {
+         $message->to($data['email'], $data['name'])->subject
+            ('Bienvenido');
+         $message->from('ecommerce.ema@gmail.com','Ecommerce');
+      });
     }
 }

@@ -1,3 +1,4 @@
+
 <body>
 	<div class="flex­center position­ref full­height">
 		<div class="row">
@@ -6,7 +7,7 @@
 					<h2>Mail Sender on Laravel</h2>
 				</div>
 				<div class="pull­right">
-					<a class="btn btn­success" href="{{action('MailController@sendBasicMail') }}"> Sending basic mails!</a>
+					<a class="btn btn­success" href="{{action('MailController@sendMailAll') }}"> Sending basic mails!</a>
 				</div>
 			</div>
 		</div>

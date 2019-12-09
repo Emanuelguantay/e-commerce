@@ -114,6 +114,6 @@ Route::get('/sendMail', function () {
 	return view('mail.sendMail');
 });
 // mail controller
-Route::get('/mailSender','MailController@sendBasicMail');
+Route::get('/mailSender','MailController@sendMailAll');
 
 //mail prueba

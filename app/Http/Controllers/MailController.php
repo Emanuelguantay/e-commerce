@@ -7,6 +7,7 @@ use Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\User;
 
 class MailController extends Controller
 {
@@ -20,36 +21,20 @@ class MailController extends Controller
       });
       echo "Email enviado!";
    }
-	
-	/*
-    public function sendBasicMail(){
-    	
-		$subject = 'Asunto del correo';
-		$from = 'emanuel.guantay92@gmail.com';
-		$sender = 'PAW 2017 at DI';
-		$advertising='PAW 2017 by Laravel 5.5';
-		$data = array('advertising'=>$advertising);
-		//dd($data);
-		Mail::send('mail.sending', $data, function($message) use ($advertising){
-			$message­->to('emanuelguantay92@gmail.com', 'Emanuel')->subject('Greetings from PAW');
 
-			$message­->from('emanuelguantay92@gmail.com','PAW by Laravel');
-		});
-		
-		//echo 'Basic email sent successfully. Please check your mail.';
-		//return view('welcome');
-	}
-	/*
-	public function sendAttachmentMail(){
-		dd('entro2');
-		$data = array('name'=>'XXX');
-		Mail::send('mail.sending', $data, function($message) {
-			$message­->to('emanuelguantay92@gmail.com', 'Emanuel')­->subject($subject);
-			$message­->attach('...\image.png');
-			$message­->attach('..\test.txt');
-			$message­->from($subject,$sender);
-		});
-		echo 'Email sent with attachment. Please check your mail.';
-	}*/
+   public function sendMailAll(){
+	$users = User::all();
+	foreach($users as $user)
+	{
+		$data = array('name'=>$user->name,
+                    'email'=>$user->email);
+	    Mail::send('mail.sendWelcome', $data, function($message) use ($data) {
+	         $message->to($data['email'], $data['name'])->subject
+	            ('Oferta');
+	         $message->from('ecommerce.ema@gmail.com','Ecommerce');
+	      });
+   	}
+   }
+	
 		
 }
