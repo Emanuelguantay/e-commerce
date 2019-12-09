@@ -1,4 +1,5 @@
 <?php
+use App\MailController;
 
 Route::get('/set_language/{lang}','Controller@setLanguage')->name('set_language');
 
@@ -108,3 +109,11 @@ Route::get('/order','OrderController@index')->name('order.index');
 Route::get('/order/{id}','OrderController@show')->name('order.detail');
 Route::get('descargar-order', 'OrderController@pdf')->name('order.pdf');
 
+// para ir a la vista que manda mail
+Route::get('/sendMail', function () {
+	return view('mail.sendMail');
+});
+// mail controller
+Route::get('/mailSender','MailController@sendBasicMail');
+
+//mail prueba
