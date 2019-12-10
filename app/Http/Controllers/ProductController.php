@@ -99,7 +99,37 @@ class ProductController extends Controller
         dd($slug);
     }
 
+    public function addReview (){
+        //dd(request()->all());
+        Review::create([
+            "user_id" => auth()->id(),
+            "product_id" => (int) request('product_id'),
+            "rating" => (int) request('rating_input'),
+            "comment" => request('message')
+        ]);
+        return back()->with('message', ['success', __("Muchas gracias por valorar el curso")]);
+    }
 
+    public function showReview (Product $product){
+        $product->load([
+            'marca' => function($q) {
+                $q->select('id','name');
+            },
+            'indumentaria' => function($q){
+                $q->select('id','name');
+            },
+            'genero' => function($q){
+                $q->select('id','name');
+            },
+            //a todas las valoraciones y al usuario al que pertenecen
+            'reviews.user',
+            'talles',
+        ])->get();
+        //get para extraer la informacion 
+        //dd($product);
 
+        //dd($related);
+        return view('review.productReview', compact('product'));
+    }
 
 }

@@ -36,7 +36,9 @@ Route::group(['prefix'=>'products'], function(){
 			->middleware([sprintf("role:%s", \App\Role::VENDEDOR)]);
 		*/
 	});
-	#siempre al ultimo xq es dinamica	
+	#siempre al ultimo xq es dinamica
+	Route::post('/add_review','ProductController@addReview')->name('products.addReview');
+	Route::get('/review/{product}', 'ProductController@showReview')->name('products.review.detail');	
 	Route::get('/{product}', 'ProductController@show')->name('products.detail');
 });
 
