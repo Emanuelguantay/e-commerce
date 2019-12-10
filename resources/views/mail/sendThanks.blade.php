@@ -108,6 +108,8 @@
 
 <body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
 <!-- HIDDEN PREHEADER TEXT -->
+
+
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">Gracias </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <!-- LOGO -->
@@ -140,9 +142,10 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                        <p style="margin: 0;">Recibimos tu pedido y lo registramos en nuestro sistema.
-                            Estamos esperando que tu pago sea aprobado por el banco emisor de tu tarjeta
-                        	En la sección “Mis pedidos" vas a poder ver toda la información relacionada con tu pedido: estado, detalle y más.</p>
+                        <p style="margin: 0;">Recibimos tu pedido y lo registramos en nuestro sistema. Estamos esperando que tu pago sea aprobado por el banco emisor de tu tarjeta En la sección “Mis pedidos" vas a poder ver toda la información relacionada con tu pedido: estado, detalle y más.</p>
+                        <p>
+                            Te mandamos el linck de los productos que compraste, para que realices una valoración.
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -152,7 +155,12 @@
                                 <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                     <table border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="border-radius: 3px;" bgcolor="#3CBEB2"><a href="http://127.0.0.1:8000/" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #3cbeb2; display: inline-block;">Comprar</a></td>
+                                            @foreach($cart as $product)
+                                            <td align="center" style="border-radius: 3px;" bgcolor="#3CBEB2"><a 
+                                                href="http://127.0.0.1:8000/products/review/{{$product->slug}}"
+                                                target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #3cbeb2; display: inline-block;">Valorar producto</a></td>
+                                            @endforeach
+                                            
                                         </tr>
                                     </table>
                                 </td>

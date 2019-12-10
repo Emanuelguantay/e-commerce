@@ -113,12 +113,13 @@ class Product extends Model
     //Productos relacionado que tengan las misma categorias
     public function relatedProducts (){
         #reviews...
-        return Product::with('reviews')
+        $product= Product::with('reviews')
             ->whereIndumentariaId($this->indumentaria->id)
             ->where('id', '!=', $this->id)
             ->latest()
             ->limit(6)
             ->get();
+        return $product;
     }
 
     public function product_talles () {

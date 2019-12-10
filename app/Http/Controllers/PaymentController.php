@@ -19,6 +19,7 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
+use Mail;
 use App\Order;
 use App\Order_line;
 
@@ -136,7 +137,7 @@ class PaymentController extends Controller
             \Session::put('success', 'Payment success');
             //TODO: logica para cargar en base de datos los productos y borrar carrito
             
-            $this->saveOrder();
+            $this->saveOrder($nameAddress);
             \Session::forget('cart');
             //dd($cart);
 
@@ -146,7 +147,7 @@ class PaymentController extends Controller
         return Redirect::to('/pago');
     }
 
-    protected function saveOrder()
+    protected function saveOrder($nameAddress)
     {
         $cart = \Session::get('cart');
         //dd($cart);
@@ -157,13 +158,15 @@ class PaymentController extends Controller
         //Crear Orden
         $order = Order::create([
             'user_id' => auth()->user()->id,
-            'total' => $subtotal
+            'total' => $subtotal,
+            'address' => $nameAddress
         ]);
         
         //Crear Order line
         foreach ($cart as $product) {
             $this->saveOrderLine($product, $order->id);
         }
+        $this->sendMailThanks($cart);
     }
 
     protected function saveOrderLine($product, $orderId)
@@ -175,4 +178,21 @@ class PaymentController extends Controller
             'qty' => $product->quantity
         ]);
     }
+
+
+    public function sendMailThanks($cart) {
+      $user = auth()->user();
+      $data = array('name'=>$user->name,
+                    'email'=>$user->email,
+                    'cart'=> $cart
+                    );
+      Mail::send('mail.sendThanks', $data, function($message) use ($data) {
+         $message->to($data['email'], $data['name'])->subject
+            ('Bienvenido');
+         $message->from('ecommerce.ema@gmail.com','Ecommerce');
+      });
+    }
+
+
+
 }

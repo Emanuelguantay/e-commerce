@@ -21,7 +21,6 @@ class CreateOrderLinesTable extends Migration
             $table->foreign('product_talle_id')->references('id')->on('product_talles');
             $table->float('product_price', 8, 2);
             $table->integer('qty');
-            $table->enum('status', ['PENDING', 'PROCESSING', 'FINISHED'])->default('PENDING');
             $table->timestamps();
         });
     }

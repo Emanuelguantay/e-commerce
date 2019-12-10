@@ -32,7 +32,6 @@ class ProductController extends Controller
     	//dd($product);
         $related= $product->relatedProducts();
 
-    	//dd($related);
     	return view('products.detail', compact('product','related'));
     }
 
@@ -58,9 +57,7 @@ class ProductController extends Controller
             return back()->with('message', ['success', __('Producto cargado correctamente')]);
         } catch (\Exception $exception) {
             return back()->with('message', ['danger', __('Error al guardar')]);
-
         }
-
 
     }
 

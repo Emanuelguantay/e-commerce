@@ -13,12 +13,15 @@
 
 <div class="pl-5 pr-5">
     <div class="row justify-content-center">
+        
         @forelse($products as $product)
-            <div class="col-md-3">
-                
-                @include('partials.products.card_product')
-                
-            </div>
+            @if($product->talles_count > 0)
+                <div class="col-md-3">
+                    
+                    @include('partials.products.card_product')
+                    
+                </div>
+            @endif
         @empty
             <div class="alert alert-dark">
                 {{__("No hay ningúna indumentaria disponible")}}
