@@ -22,6 +22,7 @@ use URL;
 use Mail;
 use App\Order;
 use App\Order_line;
+use App\Product_talles;
 
 use Exception;
 
@@ -166,6 +167,13 @@ class PaymentController extends Controller
         foreach ($cart as $product) {
             $this->saveOrderLine($product, $order->id);
         }
+
+        //Updatear Stock
+        foreach ($cart as $product) {
+            $this->updateStock($product);
+        }
+        
+
         $this->sendMailThanks($cart);
     }
 
@@ -177,6 +185,13 @@ class PaymentController extends Controller
             'product_price' => (float) $product->price,
             'qty' => $product->quantity
         ]);
+    }
+
+    protected function updateStock($product)
+    {
+        $productTalle = Product_talles::find($product->product_talle->id);
+        $productTalle->stock = $productTalle->stock - $product->quantity;
+        $productTalle->save();
     }
 
 
