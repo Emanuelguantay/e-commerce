@@ -98,13 +98,18 @@ Route::get('/cart/show', 'CartController@show')->name('cart.index');
 Route::post('/cart/destroy','CartController@destroy')->name('cart.destroy');
 Route::get('/cart/update/{product}/{quantity?}','CartController@update')->name('cart.update');
 
-Route::resource('/brand', 'BrandController');
-Route::resource('/size', 'SizeController');
-Route::resource('/gender', 'GenderController');
-Route::resource('/indumentaria', 'IndumentariaController');
+//Segurizar endpoint
+Route::group(['middleware' => ['auth']], function(){
+		Route::group(['middleware' => [sprintf('role:%s', \App\Role::VENDEDOR || \App\Role::ADMIN)]], function (){
+				Route::resource('/brand', 'BrandController');
+				Route::resource('/size', 'SizeController');
+				Route::resource('/gender', 'GenderController');
+				Route::resource('/indumentaria', 'IndumentariaController');
 
-Route::get('/productsize/{id}','ProductSizeController@index')->name('productsize.index');
-Route::resource('/productsize', 'ProductSizeController');
+				Route::get('/productsize/{id}','ProductSizeController@index')->name('productsize.index');
+				Route::resource('/productsize', 'ProductSizeController');
+			});
+	});
 
 
 Route::get('/order','OrderController@index')->name('order.index');
