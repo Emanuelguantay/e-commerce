@@ -64,10 +64,9 @@ class LoginController extends Controller
             return redirect('login');
         }
         //este dato me devuelve facebook
-        $socialUser = Socialite::driver($driver)->user();
-        //para hacer una impresion de la info del usuario
-        //dd($socialUser);
-        $user = null;
+        try{
+            $socialUser = Socialite::driver($driver)->user();
+            $user = null;
         $success = true;
         $email = $socialUser->email;
         //metodos magicos para buscar el email y obtener el primer registro
@@ -99,6 +98,13 @@ class LoginController extends Controller
             auth()->loginUsingId($user->id);
             return redirect(route('home'));
         }
+        }catch(\Exception $exception){
+            $success= $exception->getMessage();
+        }
+        
+        //para hacer una impresion de la info del usuario
+        
+        
         session()->flash('message',['danger',$success]);
         return redirect('login');
     
