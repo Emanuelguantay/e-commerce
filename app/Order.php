@@ -24,9 +24,16 @@ class Order extends Model
         'user_id','total','address',
     ];
 
+    const PENDING = 1;
+    const PROCESSING = 2;
+    const FINISHED = 3;
 
     public function order_Lines () {
         return $this->hasMany(Order_line::class);
     }
     //TOda las orderlines que tiene la orden
+
+    public function user(){
+    	return $this->belongsTo(User::class);
+    }
 }

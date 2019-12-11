@@ -129,6 +129,7 @@
         <div class="modal-body">
           <input type="hidden" name="product_id" value="{{$product->id}}" />
             <div class="form-group">
+              
               <select name="size_id" id="size_id" class="form-control">
                   @foreach(\App\Talle::pluck('name', 'id') as $id => $productsize)
                       <option value="{{ $id }}">

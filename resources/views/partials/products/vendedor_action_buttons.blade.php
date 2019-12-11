@@ -18,7 +18,7 @@
 			</form>
 		@else
 			<a class="btn btn-primary text-white" href="#">
-				<i class="fa fa-history"></i> {{__("Curso pendiente de revisión")}}
+				<i class="fa fa-history"></i> {{__("Producto pendiente de revisión")}}
 			</a>
 		@endif
 		<a class="btn btn-course" href="{{ route('products.detail', ["slug" => $product->slug]) }}">

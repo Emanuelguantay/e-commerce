@@ -41,7 +41,6 @@ class ProductController extends Controller
         return view('products.form',compact('product', 'btnText'));
     }
 
-
     //con solo poner de parametro ProductRequest ya me hace la validacion!!!!!
     public function store(ProductRequest $product_request){
         

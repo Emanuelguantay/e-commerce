@@ -14,7 +14,9 @@
             <div class="col-8 text-left">
               <h4>{{__("N° orden")}}: {{$order->id}}</h4>
               <h4> {{__("Total")}}: {{$order->total}}</h4>
-              <h4>{{__("Fecha")}}: {{$order->created_at->format('d/m/Y')}}</h4>
+              @if($order->created_at)
+                <h4>{{__("Fecha")}}: {{$order->created_at->format('d/m/Y')}}</h4>
+              @endif
               <h4>{{__("Dirección")}}: </h4>
             </div>
           </div>

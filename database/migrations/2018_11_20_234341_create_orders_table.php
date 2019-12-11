@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->float('total');
             $table->string('address');
-            $table->enum('status', ['PENDING', 'PROCESSING', 'FINISHED'])->default('PENDING');
+            $table->enum('status', [\App\Order::PENDING, \App\Order::PROCESSING, App\Order::FINISHED])->default(\App\Order::PENDING);
             $table->timestamps();
         });
     }

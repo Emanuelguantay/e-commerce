@@ -105,6 +105,7 @@ Route::group(['middleware' => ['auth']], function(){
 				Route::resource('/size', 'SizeController');
 				Route::resource('/gender', 'GenderController');
 				Route::resource('/indumentaria', 'IndumentariaController');
+				Route::resource('/orders', 'OrderAdminController');
 
 				Route::get('/productsize/{id}','ProductSizeController@index')->name('productsize.index');
 				Route::resource('/productsize', 'ProductSizeController');
