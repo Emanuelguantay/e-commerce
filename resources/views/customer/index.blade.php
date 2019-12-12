@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Vendedores', 'icon' => 'edit'])
+    @include('partials.jumbotron', ['title' => 'Cliente', 'icon' => 'edit'])
 @endsection
 
 @section('content')
@@ -18,12 +18,12 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($sellers as $sellerData)
+        @foreach($customers as $customerData)
           <tr>
-            <td>{{$sellerData->id}}</td>
-            <td>{{$sellerData->name}}</td>
-            <td>{{$sellerData->email}}</td>
-            <td>{{$sellerData->role->name}}</td>
+            <td>{{$customerData->id}}</td>
+            <td>{{$customerData->name}}</td>
+            <td>{{$customerData->email}}</td>
+            <td>{{$customerData->role->name}}</td>
             <td>
                 <a href="#" class="btn btn-success edit"> Edit</a>
                 <a href="#" class="btn btn-danger delete"> Delet</a>
@@ -41,20 +41,20 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Vendedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cliente</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
-      <form action="/seller" method="POST" id="editForm">
+      <form action="/customer" method="POST" id="editForm">
       {{csrf_field()}}
       {{method_field('PUT')}}
         <div class="modal-body">
           
             <div class="form-group">
-              <label >Vendedor: </label>
+              <label >Cliente: </label>
               <input type="text" name="bName" id="bName" class="form-control" placeholder="Ingrese el nombre" disabled="true">
             </div>
             <div class="form-group">
@@ -94,7 +94,7 @@
         </button>
       </div>
 
-      <form action="/seller" method="POST" id="deleteForm">
+      <form action="/customer" method="POST" id="deleteForm">
       {{csrf_field()}}
       {{method_field('DELETE')}}
         <div class="modal-body">
@@ -127,7 +127,7 @@
       $('#bName').val(data[1]);
       $('#bDescription').val(data[2]);
 
-      $('#editForm').attr('action','/seller/'+data[0]);
+      $('#editForm').attr('action','/customer/'+data[0]);
       $('#editModal').modal('show');
     });
     //end edir record
@@ -139,7 +139,7 @@
       }
 
       var data = table.row($tr).data();
-      $('#deleteForm').attr('action','/seller/'+data[0]);
+      $('#deleteForm').attr('action','/customer/'+data[0]);
       $('#deleteModal').modal('show');
 
     });

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 Use Exception;
 
-class SellerController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,8 @@ class SellerController extends Controller
      */
     public function index()
     {
-        $sellers = User::with('role')->where('role_id',2)->get();
-        
-        //$brands = Marca::paginate(10);
-        return view('seller.index', compact('sellers','sellers'));
+        $customers = User::with('role')->where('role_id',3)->get();
+        return view('customer.index', compact('customers','customers'));
     }
 
     /**
@@ -78,17 +76,16 @@ class SellerController extends Controller
             $this->validate($request,[
                 'role_id' =>'required',
             ]);
-            $seller = User::find($id);
+            $customer = User::find($id);
 
-            $seller->role_id = $request->input('role_id');
-            $seller->save();
+            $customer->role_id = $request->input('role_id');
+            $customer->save();
 
-            return back()->with('message', ['success', __("Vendedor modificada")]);
+            return back()->with('message', ['success', __("Cliente modificada")]);
         }catch(Exception $e){
 
             return back()->with('message', ['danger', __("Error al modificar")]);
         }
-
     }
 
     /**
@@ -101,12 +98,12 @@ class SellerController extends Controller
     {
         try
         {
-            $seller = User::find($id);
-            $seller->delete(); 
+            $customer = User::find($id);
+            $customer->delete(); 
 
-        return back()->with('message', ['success', __("Vendedor eliminada")]);
+        return back()->with('message', ['success', __("Cliente eliminada")]);
         }
-
+        
         catch(\Illuminate\Database\QueryException $ex){ 
             return back()->with('message', ['danger', __("Error al eliminar")]);
             // Note any method of class PDOException can be called on $ex.

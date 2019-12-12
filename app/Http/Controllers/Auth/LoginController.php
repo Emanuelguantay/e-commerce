@@ -66,6 +66,7 @@ class LoginController extends Controller
         //este dato me devuelve facebook
         try{
             $socialUser = Socialite::driver($driver)->user();
+            //error si ya tengo iniciado faccebook
             $user = null;
         $success = true;
         $email = $socialUser->email;
@@ -88,7 +89,7 @@ class LoginController extends Controller
                     "provider_uid" => $socialUser->id,
                 ]);
             }catch(\Exception $exception){
-                $success= $exception->getMessage();
+                $success= "Error al ingresar con facebbok";
                 \DB::rollback();
             }
         }

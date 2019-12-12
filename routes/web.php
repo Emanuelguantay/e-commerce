@@ -112,10 +112,15 @@ Route::group(['middleware' => ['auth']], function(){
 			});
 	});
 
+Route::resource('/seller', 'SellerController');
+Route::resource('/customer', 'CustomerController');
 
 Route::get('/order','OrderController@index')->name('order.index');
 Route::get('/order/{id}','OrderController@show')->name('order.detail');
 Route::get('descargar-order', 'OrderController@pdf')->name('order.pdf');
+
+//Route::get('/seller','VendedorController@index')->name('seller.index');
+//Route::post('/seller/{id}','VendedorController@destroy')->name('seller.destroy');
 
 // para ir a la vista que manda mail
 Route::get('/sendMail', function () {
