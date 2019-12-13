@@ -37,6 +37,7 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -46,6 +47,10 @@ class GenderController extends Controller
         $gender->save();
 
         return back()->with('message', ['success', __("Genero agregada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al guardar")]);
+        }
     }
 
     /**
@@ -79,6 +84,7 @@ class GenderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -88,6 +94,10 @@ class GenderController extends Controller
         $gender->save();
 
         return back()->with('message', ['success', __("Genero modificada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
     }
 
     /**

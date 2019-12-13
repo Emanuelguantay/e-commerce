@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Talles', 'icon' => 'edit'])
+    @include('partials.jumbotron', ['title' => __('Talles'), 'icon' => 'edit'])
 @endsection
 
 @section('content')
 	<div class="container">
 		
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Agregar Talles
+      {{__("Agregar Talle")}}
     </button>
 
     <br></br>
@@ -30,8 +30,8 @@
             <td>{{$sizeData->name}}</td>
             <td>{{$sizeData->description}}</td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="#" class="btn btn-danger delete"> Delet</a>
+                <a href="#" class="btn btn-success edit">{{__("Editar")}}   </a>
+                <a href="#" class="btn btn-danger delete"> {{__("Eliminar")}}</a>
                 
             </td>
           </tr>

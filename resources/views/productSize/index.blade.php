@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Talle', 'icon' => 'edit'])
+    @include('partials.jumbotron', ['title' => __('Talle'), 'icon' => 'edit'])
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Agregar Talles
+      {{__("Agregar Talle")}}
     </button>
 
     <br></br>
@@ -50,8 +50,8 @@
             <td>{{$talle->name}}</td>
             <td>{{$talle->pivot->stock}}</td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="#" class="btn btn-danger delete"> Delet</a>
+                <a href="#" class="btn btn-success edit"> {{__("Editar")}}  </a>
+                <a href="#" class="btn btn-danger delete"> {{__("Eliminar")}}</a>
                 
             </td>
           </tr>
@@ -70,7 +70,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Talle</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -116,7 +116,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Talle</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -162,7 +162,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Talle</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

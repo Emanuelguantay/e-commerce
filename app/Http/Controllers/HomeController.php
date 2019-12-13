@@ -29,7 +29,7 @@ class HomeController extends Controller
             ->where('status', Product::PUBLISHED)
             //ordenado decsendente
             ->latest()
-            ->paginate(0);
+            ->paginate(12);
         //dd($products);
         return view('home',compact('products'));
     }

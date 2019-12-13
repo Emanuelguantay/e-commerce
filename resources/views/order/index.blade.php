@@ -32,7 +32,7 @@
             </td>
             <td>
                 <!--<a href="{{action('OrderController@show', $orderData->id)}}" class="btn btn-success edit"> Ver</a>-->
-                <a href="{{ route('order.detail', ['id' => $orderData->id]) }}" class="btn btn-success edit"> Ver</a>
+                <a href="{{ route('order.detail', ['id' => $orderData->id]) }}" class="btn btn-success edit"> {{__("Ver")}}</a>
             </td>
           </tr>
         @endforeach

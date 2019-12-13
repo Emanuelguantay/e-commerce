@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Vendedores', 'icon' => 'edit'])
+    @include('partials.jumbotron', ['title' => __('Vendedores'), 'icon' => 'edit'])
 @endsection
 
 @section('content')
@@ -25,8 +25,8 @@
             <td>{{$sellerData->email}}</td>
             <td>{{$sellerData->role->name}}</td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="#" class="btn btn-danger delete"> Delet</a>
+                <a href="#" class="btn btn-success edit"> {{__("Editar")}}  </a>
+                <a href="#" class="btn btn-danger delete"> {{__("Eliminar")}}</a>
                 
             </td>
           </tr>

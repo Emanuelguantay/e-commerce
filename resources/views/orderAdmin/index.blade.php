@@ -51,8 +51,8 @@
                 @endif
             </td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="{{ route('order.detail', ['id' => $orderData->id]) }}" class="btn btn-primary edit"> Ver</a>
+                <a href="#" class="btn btn-success edit"> {{__("Editar")}}</a>
+                <a href="{{ route('order.detail', ['id' => $orderData->id]) }}" class="btn btn-primary edit"> {{__("Ver")}}</a>
             </td>
           </tr>
         @endforeach

@@ -37,6 +37,7 @@ class ProductSizeController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $this->validate($request,[
             'size_id' =>'required',
             'stock' =>'required',
@@ -51,6 +52,10 @@ class ProductSizeController extends Controller
         $productTalle->save();
 
         return back()->with('message', ['success', __("Talle agregado")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al guardar")]);
+        }
     }
 
     /**
@@ -84,6 +89,7 @@ class ProductSizeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
         $this->validate($request,[
             'size_id' =>'required',
             'stock' =>'required',
@@ -96,6 +102,10 @@ class ProductSizeController extends Controller
         $productTalle->save();
 
         return back()->with('message', ['success', __("Talle modificado")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
 
     }
 

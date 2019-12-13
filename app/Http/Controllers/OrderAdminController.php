@@ -71,6 +71,7 @@ class OrderAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
         $this->validate($request,[
             'status_id' =>'required'
         ]);
@@ -80,6 +81,10 @@ class OrderAdminController extends Controller
         $order->save();
 
         return back()->with('message', ['success', __("Orden modificada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
     }
 
     /**

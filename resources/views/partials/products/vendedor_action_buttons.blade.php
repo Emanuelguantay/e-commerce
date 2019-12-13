@@ -5,7 +5,7 @@
 			<i class="fa fa-eye"></i> {{__("Detalle")}}
 		</a>
 		<a class="btn btn-warning text-white" href="{{ route('products.edit', ["slug" => $product->slug]) }}">
-			<i class="fa fa-pencil"></i> {{__("Editar Producto")}}
+			<i class="fa fa-pencil"></i> {{__("Editar")}}
 		</a>
 		@include('partials.products.btn_forms.delete')
 	@elseif ((int) $product->status === \App\Product::PENDING)
@@ -25,7 +25,7 @@
 			<i class="fa fa-eye"></i> {{__("Detalle")}}
 		</a>
 		<a class="btn btn-warning text-white" href="{{ route('products.edit', ["slug" => $product->slug]) }}">
-			<i class="fa fa-pencil"></i> {{__("Editar Producto")}}
+			<i class="fa fa-pencil"></i> {{__("Editar")}}
 		</a>
 		@include('partials.products.btn_forms.delete')
 	@else

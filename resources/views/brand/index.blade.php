@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Marcas', 'icon' => 'edit'])
+    @include('partials.jumbotron', ['title' => __('Marcas'), 'icon' => 'edit'])
 @endsection
 
 @section('content')
 	<div class="container">
 		
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Agregar Marcas
+      {{__("Agregar Marca")}}
     </button>
 
     <br></br>
@@ -30,8 +30,8 @@
             <td>{{$brandData->name}}</td>
             <td>{{$brandData->description}}</td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="#" class="btn btn-danger delete"> Delet</a>
+                <a href="#" class="btn btn-success edit"> {{__("Editar")}}   </a>
+                <a href="#" class="btn btn-danger delete"> {{__("Eliminar")}}</a>
                 <!--<form action="{{action('BrandController@destroy', $brandData->id)}}" method="POST">
                   {{csrf_field()}}
                   {{method_field('DELETE')}}

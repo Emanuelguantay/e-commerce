@@ -41,7 +41,7 @@
 				<div class="alert alert-dark">
 					{{__("No tienes ningún curso todavia")}} <br />
 					<a class="btn btn-product btn-block" href="{{route('products.create')}}">
-						{{__("Crear producto!")}}	
+						{{__("Crear producto")}}	
 					</a>
 				</div>
 				

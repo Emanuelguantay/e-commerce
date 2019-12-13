@@ -30,6 +30,7 @@ class IndumentariaController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -40,6 +41,10 @@ class IndumentariaController extends Controller
         $clothes->save();
 
         return back()->with('message', ['success', __("Indumentaria agregada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al guardar")]);
+        }
     }
 
     /**
@@ -73,6 +78,7 @@ class IndumentariaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -83,6 +89,10 @@ class IndumentariaController extends Controller
         $clothes->save();
 
         return back()->with('message', ['success', __("Indumentaria modificada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
     }
 
     /**

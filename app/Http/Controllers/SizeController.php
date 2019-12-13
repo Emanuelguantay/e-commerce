@@ -37,6 +37,7 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -47,6 +48,10 @@ class SizeController extends Controller
         $size->save();
 
         return back()->with('message', ['success', __("Talle agregada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al guardar")]);
+        }
     }
 
     /**
@@ -80,6 +85,7 @@ class SizeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -90,6 +96,10 @@ class SizeController extends Controller
         $size->save();
 
         return back()->with('message', ['success', __("Talle modificada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
     }
 
     /**

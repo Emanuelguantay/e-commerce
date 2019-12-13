@@ -41,7 +41,7 @@
       <div class="col-md-2">
           <!--<button type="button" class="btn btn-primary btn-block">Search</button>-->
           
-            <button type="submit" class="btn btn-primary btn-block">Search</button>
+            <button type="submit" class="btn btn-primary btn-block">{{__("Buscar")}}</button>
             
       </div>
     </div>

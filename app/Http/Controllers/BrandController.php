@@ -38,6 +38,9 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        try{
+
+        
         $this->validate($request,[
             'bName' =>'required'
         ]);
@@ -48,6 +51,10 @@ class BrandController extends Controller
         $brand->save();
 
         return back()->with('message', ['success', __("Marca agregada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al guardar")]);
+        }
     }
 
     /**
@@ -81,9 +88,13 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try{
+
+
         $this->validate($request,[
             'bName' =>'required'
         ]);
+
         $brand = Marca::find($id);
 
         $brand->name = $request->input('bName');
@@ -91,6 +102,10 @@ class BrandController extends Controller
         $brand->save();
 
         return back()->with('message', ['success', __("Marca modificada")]);
+        }
+        catch(Exception $e){
+            return back()->with('message', ['danger', __("Error al modificar")]);
+        }
     }
 
     /**

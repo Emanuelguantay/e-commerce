@@ -100,20 +100,21 @@ Route::get('/cart/update/{product}/{quantity?}','CartController@update')->name('
 
 //Segurizar endpoint
 Route::group(['middleware' => ['auth']], function(){
-		Route::group(['middleware' => [sprintf('role:%s', \App\Role::VENDEDOR || \App\Role::ADMIN)]], function (){
+		Route::group(['middleware' => [sprintf('role:%s', \App\Role::ADMIN)]], function (){
 				Route::resource('/brand', 'BrandController');
 				Route::resource('/size', 'SizeController');
 				Route::resource('/gender', 'GenderController');
 				Route::resource('/indumentaria', 'IndumentariaController');
 				Route::resource('/orders', 'OrderAdminController');
+				Route::resource('/seller', 'SellerController');
+				Route::resource('/customer', 'CustomerController');
 
 				Route::get('/productsize/{id}','ProductSizeController@index')->name('productsize.index');
 				Route::resource('/productsize', 'ProductSizeController');
 			});
 	});
 
-Route::resource('/seller', 'SellerController');
-Route::resource('/customer', 'CustomerController');
+
 
 Route::get('/order','OrderController@index')->name('order.index');
 Route::get('/order/{id}','OrderController@show')->name('order.detail');

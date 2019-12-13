@@ -11,7 +11,7 @@
 	<div class="container">
 		
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Agregar Indumentarias
+      {{__("Agregar Indumentarias")}}
     </button>
 
     <br></br>
@@ -33,8 +33,8 @@
             <td>{{$clothesData->name}}</td>
             <td>{{$clothesData->description}}</td>
             <td>
-                <a href="#" class="btn btn-success edit"> Edit</a>
-                <a href="#" class="btn btn-danger delete"> Delet</a>
+                <a href="#" class="btn btn-success edit"> {{__("Editar")}}  </a>
+                <a href="#" class="btn btn-danger delete"> {{__("Eliminar")}}</a>
                 <!--<form action="{{action('IndumentariaController@destroy', $clothesData->id)}}" method="POST">
                   {{csrf_field()}}
                   {{method_field('DELETE')}}

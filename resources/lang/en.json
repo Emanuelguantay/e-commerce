@@ -29,6 +29,56 @@
 
 	"Se ha actualizado correctamente": "It has been updated correctly",
 	"Se ha eliminado correctamente":"It has been removed correctly",
-	"Error al eliminar":"Error deleting"
+	"Error al eliminar":"Error deleting",
+	"Buscar":"Search",
+	"Tu carrito está vacío":"Your cart is empty",
+	"Continuar comprando": "Continue shopping online",
+	"Mi carrito": "My shoping cart",
+	"Selecciona un idioma": "Select a language",
+	"Configura tu perfil":"Configure your profile",
+	"Actualiza tus datos":"Update your data",
+	"Correo electrónico" :"Email",
+	"Contraseña":"Password",
+	"Confirmar la contraseña":"Confirm Password",
+	"Actualizar datos":"Update data",
+	"Ordenes":"Orders",
+
+	"Administrar usuarios":"Manage users",
+	"Administrar":"Manage",
+	"Administrar productos":"Manage products",
+	"Orden": "Order",
+	"Marca": "Brand",
+	"Indumentaria": "Dress",
+	"Talle": "Size",
+	"Genero": "Gender",
+	"Crear Producto": "Create Product",
+     "Marcas":"Brands",
+     "Agregar Marca":"Add Brand",
+     "Editar":"Update",
+	"Eliminar":"Delete",
+	"Ver":"See",
+	"Talles":"Sizes",
+	"Agregar Talle":"Add Size",
+	"Agregar Indumentaria":"Add Dress",
+	"Agregar Genero":"Add Gender",
+	"Dar de alta un nuevo producto":"Register a new product",
+
+	"Información del producto":"Product Information",
+	"Nombre del producto":"Product name",
+	"Tipo de indumentaria":"Type of clothing",
+	"Descripción del producto":"Product description",
+	"Precio del producto":"Price of the product",
+	"Enviar producto para revisión":"Submit product for review",
+	"Productos":"Products",
+	"Nombre":"First name",
+	"Precio":"Price",
+	"Crear Producto":"Create Product",
+	"Detalle":"Detail",
+	"Vendedores":"Sellers",
+	"Clientes":"Customers"
+
+
+
+
 
 }

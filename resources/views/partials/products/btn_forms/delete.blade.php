@@ -2,7 +2,7 @@
 	@csrf
 	@method('DELETE')
 	<button type="submit" class="btn btn-danger text-white">
-		<i class="fa fa-trash"></i> {{__("Eliminar producto")}}
+		<i class="fa fa-trash"></i> {{__("Eliminar")}}
 	</button>
 	
 </form>
