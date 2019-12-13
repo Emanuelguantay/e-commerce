@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    @include('partials.jumbotron', ['title' => 'Detalle orden', 'icon' => 'th-list'])
+    @include('partials.jumbotron', ['title' => __('Detalle orden'), 'icon' => 'th-list'])
 @endsection
 
 @section('content')
@@ -35,11 +35,11 @@
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Indumentaria</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Precio</th>
+          <th scope="col">{{__("Nombre")}}</th>
+          <th scope="col">{{__("Marca")}}</th>
+          <th scope="col">{{__("Indumentaria")}}</th>
+          <th scope="col">{{__("Cantidad")}}</th>
+          <th scope="col">{{__("Precio")}}</th>
         </tr>
       </thead>
       <tbody>

@@ -18,9 +18,9 @@
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Acciones</th>
+          <th scope="col">{{__("Nombre")}}</th>
+          <th scope="col">{{__("Descripción")}}</th>
+          <th scope="col">{{__("Acciones")}}</th>
         </tr>
       </thead>
       <tbody>
@@ -54,7 +54,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__("Marca")}}</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -66,19 +66,19 @@
         <div class="modal-body">
           
             <div class="form-group">
-              <label >Nombre</label>
-              <input type="text" name="bName" class="form-control" placeholder="Ingrese el nombre">
+              <label >{{__("Nombre")}}</label>
+              <input type="text" name="bName" class="form-control" placeholder={{__("Ingrese el nombre")}}>
             </div>
             <div class="form-group">
-              <label>Descripción</label>
+              <label>{{__("Descripción")}}</label>
               <textarea class="form-control" name="bDescription" rows="3"></textarea>
 
             </div>
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__("Cerrar")}}</button>
+          <button type="submit" class="btn btn-primary">{{__("Guardar")}} </button>
         </div>
       </form>
     </div>
@@ -94,7 +94,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__("Marca")}}</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -107,19 +107,19 @@
         <div class="modal-body">
           
             <div class="form-group">
-              <label >Nombre</label>
+              <label >{{__("Nombre")}}</label>
               <input type="text" name="bName" id="bName" class="form-control" placeholder="Ingrese el nombre">
             </div>
             <div class="form-group">
-              <label>Descripción</label>
+              <label>{{__("Descripción")}}</label>
               <textarea class="form-control" name="bDescription" id="bDescription" rows="3"></textarea>
 
             </div>
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__("Cerrar")}}</button>
+          <button type="submit" class="btn btn-primary">{{__("Editar")}}</button>
         </div>
       </form>
     </div>
@@ -134,7 +134,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__("Marca")}}</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -146,11 +146,11 @@
       {{method_field('DELETE')}}
         <div class="modal-body">
           <input type="hidden" name="_method" value="DELETE">
-          <p> ¿Esta seguro que desea eliminar?</p>
+          <p> {{__("¿Esta seguro que desea eliminar?")}}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Borrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__("Cerrar")}}</button>
+          <button type="submit" class="btn btn-primary">{{__("Borrar")}}</button>
         </div>
       </form>
     </div>

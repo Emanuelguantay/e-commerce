@@ -39,7 +39,7 @@
 				</div>
 			@empty
 				<div class="alert alert-dark">
-					{{__("No tienes ningún curso todavia")}} <br />
+					{{__("No tienes ningún producto")}} <br />
 					<a class="btn btn-product btn-block" href="{{route('products.create')}}">
 						{{__("Crear producto")}}	
 					</a>

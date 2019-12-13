@@ -37,7 +37,7 @@
 			</div>
 		@empty
 			<div class="alert alert-dark">
-				{{__("No existe ningún curso relacionado")}}
+				{{__("No existe ningún producto relacionado")}}
 			</div>
 
 		@endforelse

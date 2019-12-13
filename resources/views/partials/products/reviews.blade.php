@@ -27,7 +27,7 @@
 					</div>
 				</div>
 			@empty
-				<div class="alert alert-dark"><i class="fa fa-info-circle"></i>{{__("Sin valoraciones todavia")}}</div>
+				<div class="alert alert-dark"><i class="fa fa-info-circle"></i>{{__("Sin valoraciones")}}</div>
 			@endforelse
 		</div>
 	</div>

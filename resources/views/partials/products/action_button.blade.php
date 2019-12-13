@@ -46,7 +46,7 @@
 				</form>
 			@else
 				<div class=" py-2 px-2 my-2">
-						<h4>Disculpe, no se encuentra disponible este producto.</h4>
+						<h4>{{__("Disculpe, no se encuentra disponible este producto.")}}</h4>
 					</div>
 			@endif
 		<!--else

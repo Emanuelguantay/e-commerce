@@ -15,12 +15,12 @@
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Direccion</th>
-          <th scope="col">Total</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Acciones</th>
+          <th scope="col">{{__("Usuario")}}</th>
+          <th scope="col">{{__("Dirección")}}</th>
+          <th scope="col">{{__("Total")}}</th>
+          <th scope="col">{{__("Fecha")}}</th>
+          <th scope="col">{{__("Estado")}}</th>
+          <th scope="col">{{__("Acciones")}}</th>
         </tr>
       </thead>
       <tbody>
@@ -42,7 +42,7 @@
                   </a>
                 @elseif((int) $orderData->status === (\App\Order::PROCESSING))
                   <a class="btn btn-warning text-white" href="#">
-                    {{__("PROCES0")}}
+                    {{__("PROCESO")}}
                   </a>
                 @else
                   <a class="btn btn-success text-white" href="#">
@@ -68,7 +68,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Marca</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{__("Orden")}}</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -86,16 +86,16 @@
 
             <div class="form-group">
               <select name="status_id" id="status_id" class="form-control">
-                  <option value="{{\App\Order::PENDING}}" selected>PENDING</option>
-                  <option value="{{\App\Order::PROCESSING}}">PROCESSING</option>
-                  <option value="{{App\Order::FINISHED}}">FINISHED</option>
+                  <option value="{{\App\Order::PENDING}}" selected>{{__("PENDIENTE")}}</option>
+                  <option value="{{\App\Order::PROCESSING}}">{{__("PROCESO")}}</option>
+                  <option value="{{App\Order::FINISHED}}">{{__("FINALIZADO")}}</option>
               </select>
             </div>
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__("Cerrar")}}</button>
+          <button type="submit" class="btn btn-primary">{{__("Editar")}}</button>
         </div>
       </form>
     </div>

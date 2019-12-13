@@ -16,8 +16,8 @@
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Total</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Acciones</th>
+          <th scope="col">{{__("Fecha")}}</th>
+          <th scope="col">{{__("Acciones")}}</th>
         </tr>
       </thead>
       <tbody>

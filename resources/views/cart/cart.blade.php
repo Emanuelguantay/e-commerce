@@ -10,12 +10,12 @@
 			<thead>
 				<tr>
 					<th class="text-center"> #</th>
-					<th class=" text-center">Nombre</th>
-					<th class=" text-center">Talle</th>
-					<th>Precio</th>
-					<th>Cantidad</th>
-					<th class="text-right">SubTotal</th>
-					<th class="text-right">Opciones</th>
+					<th class=" text-center">{{__("Nombre")}}</th>
+					<th class=" text-center">{{__("Talle")}}</th>
+					<th>{{__("Precio")}}</th>
+					<th>{{__("Cantidad")}}</th>
+					<th class="text-right">{{__("SubTotal")}}</th>
+					<th class="text-right">{{__("Opciones")}}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -114,7 +114,7 @@
 		
 		<div class="col-11 text-right">
 
-			<h2>Precio Total: $ {{$precio}}</h2>
+			<h2>{{__("Precio Total")}}: $ {{$precio}}</h2>
 		</div>
 			<!--include('order.action_button_pago',['costo' => $precio])-->
 		<div class="col-11 text-right">
