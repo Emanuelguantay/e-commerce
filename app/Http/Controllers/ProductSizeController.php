@@ -51,6 +51,14 @@ class ProductSizeController extends Controller
         
         $productTalle->save();
 
+
+        $product = Product::find($request->input('product_id'));
+        if ($product->status==Product::PENDING)
+        {
+            $product->status = Product::PUBLISHED;
+            $product->save();
+        }
+
         return back()->with('message', ['success', __("Talle agregado")]);
         }
         catch(Exception $e){

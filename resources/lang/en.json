@@ -123,6 +123,8 @@
 	"Aun no tienes pedidos disponible" : "You have no orders available",
 	"Pedido de Pago" : "Payment Request",
 	"Pago finalizado" : "Payment completed",
-	"Pago fallido" : "Payment failed"
+	"Pago fallido" : "Payment failed",
+	"Restablecer la contraseña" : "Reset Password",
+	"Restablecer contraseña" : "Reset Password"
 
 }

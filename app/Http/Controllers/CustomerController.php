@@ -81,7 +81,7 @@ class CustomerController extends Controller
             $customer->role_id = $request->input('role_id');
             $customer->save();
 
-            return back()->with('message', ['success', __("Cliente modificada")]);
+            return back()->with('message', ['success', __("Cliente modificado")]);
         }catch(Exception $e){
 
             return back()->with('message', ['danger', __("Error al modificar")]);
@@ -101,7 +101,7 @@ class CustomerController extends Controller
             $customer = User::find($id);
             $customer->delete(); 
 
-        return back()->with('message', ['success', __("Cliente eliminada")]);
+        return back()->with('message', ['success', __("Cliente eliminado")]);
         }
         
         catch(\Illuminate\Database\QueryException $ex){ 

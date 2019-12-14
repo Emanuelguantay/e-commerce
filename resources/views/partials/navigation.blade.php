@@ -3,8 +3,9 @@
 		<div class="container">
 
 			<a class="navbar-brand" href="{{url('/')}}">
-				<!--Entra a carpeta config/app.php->"name" (para obtener el nombre de la aplicacion)-->
-				{{ config('app.name')}}
+				<!--Entra a carpeta config/app.php->"name" (para obtener el nombre de la aplicacion)
+				{ config('app.name')}}-->
+				Ecommerce
 			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
