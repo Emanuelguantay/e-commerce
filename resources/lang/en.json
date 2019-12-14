@@ -116,6 +116,13 @@
 	"Ingles":"English",
 	"Número de valoraciones":"Number of ratings",
 	"Valoraciones":"Ratings",
-	"Seleccione Talle" : "Select Size"
+	"Seleccione Talle" : "Select Size",
+
+	"Error al modificar":"Error al updatear",
+
+	"Aun no tienes pedidos disponible" : "You have no orders available",
+	"Pedido de Pago" : "Payment Request",
+	"Pago finalizado" : "Payment completed",
+	"Pago fallido" : "Payment failed"
 
 }

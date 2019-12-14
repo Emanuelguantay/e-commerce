@@ -52,7 +52,7 @@
 									<input 
 										id="password"
 										type="password" 
-										class="form-control{{$errors->has('password') ? ' is-invalid' : '' }}" 
+										class="form-control{{$errors->has('password') ? ' is-invalid' : ' ' }}" 
 										name="password"
 										required 
 									/>
