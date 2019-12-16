@@ -39,7 +39,7 @@
 
 						<h4>{{$detail->sizename}}</h4>
 					</td>
-					<td >$ {{$detail->price}}</td>
+					<td >{{__("Moneda")}}{{$detail->price}}</td>
 					<td>
 						<!--
 						<input 
@@ -88,7 +88,7 @@
 	        				</div>
 						</div>
 					</td>
-					<td  class="text-right">$ {{$detail->quantity * $detail->price}}</td>
+					<td  class="text-right">{{__("Moneda")}}{{$detail->quantity * $detail->price}}</td>
 
 					<td class="td-actions text-right">	
 						<form method="POST" action="{{route('cart.destroy')}}">
@@ -114,7 +114,7 @@
 		
 		<div class="col-11 text-right">
 
-			<h2>{{__("Precio Total")}}: $ {{$precio}}</h2>
+			<h2>{{__("Precio Total")}}: {{__("Moneda")}}{{$precio}}</h2>
 		</div>
 			<!--include('order.action_button_pago',['costo' => $precio])-->
 		<div class="col-11 text-right">
@@ -123,12 +123,12 @@
 					@csrf
 					<input type="hidden" name="precio" value="{{$precio}}"/>
 					<button type="submit" class="btn btn-subscribe btn-bottom ">
-						<i class="fa fa-bolt"></i> {{__("Concluir compra")}}				
+						<i class="fa fa-bolt"></i> {{__("Finalizar compra")}}				
 					</button>
 				</form>
 			@else
 				<a class="btn btn-subscribe btn-bottom " href="{{route('login')}}">
-					<i class="fa fa-bolt"></i> {{__("Concluir compra")}}
+					<i class="fa fa-bolt"></i> {{__("Finalizar compra")}}
 				</a>
 			@endauth
 		</div>

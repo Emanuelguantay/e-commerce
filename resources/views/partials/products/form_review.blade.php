@@ -23,7 +23,7 @@
 				<div class="form-group">
 					<div class="col-12">
 						<textarea
-							placeholder="{{__("Escribe una reseña")}}"
+							placeholder="{{__("Escribe una valoración")}}"
 							id="message"
 							name="message"
 							class="form-control"
@@ -36,7 +36,7 @@
 				</div>
 				<div class="col-12 pt-0 mt-4 text-center">
 					<button type="submit" class="btn btn-warning text-white">
-					<i class="fa fa-space-shuttle"></i> {{__("Valorar producto")}}					
+					<i class="fa fa-space-shuttle"></i> {{__("Valorar")}}					
 				</button>
 				</div>
 				

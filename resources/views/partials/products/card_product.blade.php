@@ -11,7 +11,7 @@
 		<hr />
 		<span class="badge badge-danger badge-cat">{{$product->Indumentaria->name}}</span>
 		<h3>{{$product->marca->name}}</h3>
-		<h2>${{$product->price}}</h2>
+		<h2>{{__("Moneda")}}{{$product->price}}</h2>
 		
 		<hr />	
 		<div class="row justify-content-center">

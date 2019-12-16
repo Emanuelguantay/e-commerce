@@ -6,6 +6,13 @@
 
 @section('content')
 	<div class="pl-5 pr-5">
+		<hr> 
+		<p> 
+			<a href="{{route('productRanking.pdf')}}" class="btn btn-danger text-white">
+				<i class="fa fa-file-pdf-o"></i> {{__("Ranking productos")}}  
+			</a> 
+		</p>
+
 		<div class="row justify-content-center">
 			@forelse($products as $product)
 				<div class="col-md-9 offset-2 listing-block">
@@ -26,7 +33,7 @@
 									{{ $product->indumentaria->name}}
 								</small>
 								<small>{{__("Nombre")}}: {{$product->name}}</small>
-								<small>{{__("Precio")}}: $ {{$product->price}}</small>
+								<small>{{__("Precio")}}: {{__("Moneda")}}{{$product->price}}</small>
 							</div>
 							<div class="stats">
 								@include('partials.products.rating', ['rating' => $product->custom_rating])

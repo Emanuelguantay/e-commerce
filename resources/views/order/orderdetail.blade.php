@@ -24,10 +24,6 @@
       </div>
     </div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Generar Pdf
-    </button>
-
     <br></br>
 
   <!-- Table table-bordered -->

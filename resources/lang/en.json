@@ -16,7 +16,7 @@
 	"Mi perfil": "My profile",
 	"Mi cuenta": "My account",
 	"Mis pedidos": "My orders",
-	"Accede a cualquier indumentaria": "Access any clothing",
+	"Accede a cualquier indumentaria": "Available clothes",
 	
 	"Mira más": "Look more",
 	"También te sugerimos": "We also suggest you",
@@ -113,7 +113,7 @@
 	"No existe ningún producto relacionado" : "There is no related product",
 	"Sin valoraciones":"No ratings",
 	"Español":"Spanish",
-	"Ingles":"English",
+	"Inglés": "English",
 	"Número de valoraciones":"Number of ratings",
 	"Valoraciones":"Ratings",
 	"Seleccione Talle" : "Select Size",
@@ -125,6 +125,9 @@
 	"Pago finalizado" : "Payment completed",
 	"Pago fallido" : "Payment failed",
 	"Restablecer la contraseña" : "Reset Password",
-	"Restablecer contraseña" : "Reset Password"
+	"Restablecer contraseña" : "Reset Password",
+	"Valorar" : "Evaluate",
+	"Escribe una valoración" : "Write a review",
+	"Moneda" :"US $"
 
 }

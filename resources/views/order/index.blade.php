@@ -25,7 +25,7 @@
           @foreach($orders as $orderData)
             <tr>
               <td>{{$orderData->id}}</td>
-              <td>{{$orderData->total}}</td>
+              <td>{{__("Moneda")}}{{$orderData->total}}</td>
               <td>
                 @if($orderData->created_at)
                   {{$orderData->created_at->format('d/m/Y')}}

@@ -29,7 +29,7 @@
             <td>{{$orderData->id}}</td>
             <td>{{$orderData->user->name}}</td>
             <td>{{$orderData->address}}</td>
-            <td>$ {{$orderData->total}}</td>
+            <td>{{__('Moneda')}}{{$orderData->total}}</td>
             <td>
               @if($orderData->created_at)
                 {{$orderData->created_at->format('d/m/Y')}}

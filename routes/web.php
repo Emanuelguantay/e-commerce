@@ -119,6 +119,8 @@ Route::get('/order','OrderController@index')->name('order.index');
 Route::get('/order/{id}','OrderController@show')->name('order.detail');
 Route::get('descargar-order', 'OrderController@pdf')->name('order.pdf');
 
+Route::get('ranking', 'OrderController@rankingProductOrdenpdf')->name('productRanking.pdf');
+
 //Route::get('/seller','VendedorController@index')->name('seller.index');
 //Route::post('/seller/{id}','VendedorController@destroy')->name('seller.destroy');
 
