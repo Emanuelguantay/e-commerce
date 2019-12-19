@@ -80,15 +80,54 @@ class OrderController extends Controller
         $pdf = \PDF::loadView('productSize.rankingPdf', compact('ranking'));
         return $pdf->download('ranking-productos-mas-vendidos.pdf');
 
+    }
+
+    public function ProductSinStockOrdenpdf() {
+        //$orders = Order_line::all();
+        
+        $products =  \DB::table('product_talles')
+                ->select( 'product_talles.id', DB::raw('products.name as productName'),'talles.name', 'product_talles.stock')
+                ->join('products', 'product_talles.product_id', '=', 'products.id')
+                ->join('talles','product_talles.talle_id', '=', 'talles.id')
+                ->where('product_talles.stock', '=', '0')
+                
+                ->get();
+
+        $pdf = \PDF::loadView('productSize.productSinStockPdf', compact('products'));
+        return $pdf->download('products-sin-stock.pdf');
+    }
+
+    public function RankingMarcasOrdenpdf() {
+        //$orders = Order_line::all();
+        
+        $marcas =  \DB::table('product_talles')
+                ->select( 'marcas.id','marcas.name', DB::raw('Count(marcas.id) as cantidad'))
+                ->join('products', 'product_talles.product_id', '=', 'products.id')
+                ->join('marcas','products.marca_id', '=', 'marcas.id')
+                ->groupBy('marcas.id', 'marcas.name')
+                ->orderBy('cantidad','DESC')
+                ->get();
+        $pdf = \PDF::loadView('productSize.rankingMarcasPdf', compact('marcas'));
+        return $pdf->download('ranking-marcas.pdf');
+    }
+    
+}
+
         /*
         //consulta sql
-        SELECT products.name, talles.name, order_lines.product_talle_id,Sum(order_lines.qty) AS Expr1
+SELECT products.name, talles.name, order_lines.product_talle_id,Sum(order_lines.qty) AS Expr1
 FROM order_lines
 inner join product_talles on (order_lines.product_talle_id = product_talles.id) 
 inner join products on (product_talles.product_id = products.id)
 inner join talles on (product_talles.talle_id = talles.id)
 GROUP BY (products.name, talles.name,order_lines.product_talle_id)
 order by  Expr1 DESC
+
+select product_talles.id, products.name,  talles.name, product_talles.stock
+from product_talles
+inner join products on (product_talles.product_id = products.id)
+inner join talles on (product_talles.talle_id = talles.id)
+where (product_talles.stock = 0)
         */
 
         /* //ejemplo
@@ -100,8 +139,6 @@ order by  Expr1 DESC
             ->groupBy('despachos.id_producto')
             ->get();
         */
-        
-    }
-
     
-}
+
+

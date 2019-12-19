@@ -121,6 +121,9 @@ Route::get('descargar-order', 'OrderController@pdf')->name('order.pdf');
 
 Route::get('ranking', 'OrderController@rankingProductOrdenpdf')->name('productRanking.pdf');
 
+Route::get('productsintock', 'OrderController@ProductSinStockOrdenpdf')->name('productSinStock.pdf');
+Route::get('rankingMarcas', 'OrderController@RankingMarcasOrdenpdf')->name('marcasRanking.pdf');
+
 //Route::get('/seller','VendedorController@index')->name('seller.index');
 //Route::post('/seller/{id}','VendedorController@destroy')->name('seller.destroy');
 

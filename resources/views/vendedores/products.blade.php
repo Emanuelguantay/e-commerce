@@ -11,6 +11,22 @@
 			<a href="{{route('productRanking.pdf')}}" class="btn btn-danger text-white">
 				<i class="fa fa-file-pdf-o"></i> {{__("Ranking productos")}}  
 			</a> 
+
+			<a href="{{route('productSinStock.pdf')}}" class="btn btn-danger text-white">
+				<i class="fa fa-file-pdf-o"></i> {{__("Productos sin stock")}}  
+			</a> 
+
+			<a href="{{route('marcasRanking.pdf')}}" class="btn btn-danger text-white">
+				<i class="fa fa-file-pdf-o"></i> {{__("Ranking marcas")}}  
+			</a>
+			
+			<a href="#" class="btn btn-danger text-white">
+				<i class="fa fa-file-pdf-o"></i> {{__("Ranking Indumentaria")}}  
+			</a>  
+
+			<a href="#" class="btn btn-danger text-white">
+				<i class="fa fa-file-pdf-o"></i> {{__("Ranking Generos")}}  
+			</a> 
 		</p>
 
 		<div class="row justify-content-center">

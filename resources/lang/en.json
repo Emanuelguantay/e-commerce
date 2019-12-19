@@ -128,6 +128,11 @@
 	"Restablecer contraseña" : "Reset Password",
 	"Valorar" : "Evaluate",
 	"Escribe una valoración" : "Write a review",
+	"Registro" : "Register",
+	"Nombre" : "Name",
+	"Contraseña" : "Password",
+	"Confirmar Contraseña" : "Confirm Password",
+	"Registrar" : "Register",
 	"Moneda" :"US $"
 
 }
