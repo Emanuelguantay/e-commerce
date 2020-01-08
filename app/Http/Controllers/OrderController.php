@@ -9,7 +9,7 @@ use App\Order_line;
 use App\Marca;
 use App\Indumentaria;
 use DB;
-
+use Exception;
 
 class OrderController extends Controller
 {
@@ -100,8 +100,9 @@ class OrderController extends Controller
     public function RankingMarcasOrdenpdf() {
         //$orders = Order_line::all();
         
-        $marcas =  \DB::table('product_talles')
-                ->select( 'marcas.id','marcas.name', DB::raw('Count(marcas.id) as cantidad'))
+        $marcas =  \DB::table('order_lines')
+                ->select( 'marcas.id', 'marcas.name', DB::raw('Count(marcas.id) as cantidad'))
+                ->join('product_talles', 'order_lines.product_talle_id', '=', 'product_talles.id')
                 ->join('products', 'product_talles.product_id', '=', 'products.id')
                 ->join('marcas','products.marca_id', '=', 'marcas.id')
                 ->groupBy('marcas.id', 'marcas.name')
@@ -110,8 +111,47 @@ class OrderController extends Controller
         $pdf = \PDF::loadView('productSize.rankingMarcasPdf', compact('marcas'));
         return $pdf->download('ranking-marcas.pdf');
     }
-    
+
+    public function RankingIndumentariasOrdenpdf() {
+        //$orders = Order_line::all();
+        
+        $indumentarias =  \DB::table('order_lines')
+                ->select( 'indumentarias.id','indumentarias.name', DB::raw('Count(indumentarias.id) as count'))
+                ->join('product_talles', 'order_lines.product_talle_id', '=', 'product_talles.id')
+                ->join('products', 'product_talles.product_id', '=', 'products.id')
+                ->join('indumentarias','products.indumentaria_id', '=', 'indumentarias.id')
+                ->groupBy('indumentarias.id', 'indumentarias.name')
+                ->orderBy('count','DESC')
+                ->get();
+        $pdf = \PDF::loadView('productSize.rankingIndumentariasPdf', compact('indumentarias'));
+        return $pdf->download('ranking-indumentarias.pdf');
+    }
+
+
+    public function RankingGenerosOrdenpdf() {
+       
+        $generos =  \DB::table('order_lines')
+                ->select( 'generos.id','generos.name', DB::raw('Count(generos.id) as count'))
+                ->join('product_talles', 'order_lines.product_talle_id', '=', 'product_talles.id')
+                ->join('products', 'product_talles.product_id', '=', 'products.id')
+                ->join('generos','products.genero_id', '=', 'generos.id')
+                ->groupBy('generos.id', 'generos.name')
+                ->orderBy('count','DESC')
+                ->get();
+        $pdf = \PDF::loadView('productSize.rankingGenerosPdf', compact('generos'));
+        return $pdf->download('ranking-generos.pdf');
+    }
 }
+
+/*
+SELECT indumentarias.id, indumentarias.name, COUNT(indumentarias.id) as count
+FROM order_lines
+inner join product_talles on (order_lines.product_talle_id = product_talles.id)
+inner join products on (product_talles.product_id = products.id)
+inner join indumentarias on (products.indumentaria_id = indumentarias.id)
+GROUP BY (indumentarias.id, indumentarias.name)
+order by  count DESC
+*/
 
         /*
         //consulta sql

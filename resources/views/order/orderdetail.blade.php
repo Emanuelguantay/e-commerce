@@ -13,11 +13,11 @@
           <div class="text-white text-center d-flex align-center py-4 px-4 my-2">
             <div class="col-8 text-left">
               <h4>{{__("N° orden")}}: {{$order->id}}</h4>
-              <h4> {{__("Total")}}: {{$order->total}}</h4>
+              <h4> {{__("Total")}}: {{__("Moneda")}}{{$order->total}}</h4>
               @if($order->created_at)
                 <h4>{{__("Fecha")}}: {{$order->created_at->format('d/m/Y')}}</h4>
               @endif
-              <h4>{{__("Dirección")}}: </h4>
+              <h4>{{__("Dirección")}}: {{$order->address}}</h4>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
     </div>
 
     <br></br>
-
+  
   <!-- Table table-bordered -->
     <table id="datatable" class="table table-dark">
       <thead>
@@ -35,7 +35,7 @@
           <th scope="col">{{__("Marca")}}</th>
           <th scope="col">{{__("Indumentaria")}}</th>
           <th scope="col">{{__("Cantidad")}}</th>
-          <th scope="col">{{__("Precio")}}</th>
+          <th scope="col">{{__("Precio por cantidad")}}</th>
         </tr>
       </thead>
       <tbody>
@@ -47,17 +47,11 @@
             <td>{{$order_line->indumentaria}}</td>
             <td>{{$order_line->qty}}</td>
             <td>
-                $ {{$order_line->product_price * $order_line->qty}}
+                {{__("Moneda")}}{{$order_line->product_price * $order_line->qty}}
             </td>
           </tr>
         @endforeach
       </tbody>
     </table>
-
-
-    <hr> <p> <a href="{{route('order.pdf')}}" class="btn btn-
-    sm btn-primary"> Descargar productos en PDF </a> </p>
-     
 	</div>
-
 @endsection

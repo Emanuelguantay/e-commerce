@@ -116,6 +116,7 @@ class Product extends Model
         $product= Product::with('reviews')
             ->whereIndumentariaId($this->indumentaria->id)
             ->where('id', '!=', $this->id)
+            ->where('status', Product::PUBLISHED)
             ->latest()
             ->limit(6)
             ->get();

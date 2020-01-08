@@ -109,6 +109,7 @@
     var table = $('#datatable').DataTable();
     //start Edit Record
     table.on('click','.edit',function(){
+      
       $tr = $(this).closest('tr');
       if($($tr).hasClass('child')){
         $tr = $tr.prev('.parent');

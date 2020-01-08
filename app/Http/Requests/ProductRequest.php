@@ -34,7 +34,6 @@ class ProductRequest extends FormRequest
             case 'POST': {
                 return [
                     'name' => 'required|min:3',
-                    'description' => 'required|min:30',
                     'marca_id' => [
                         'required',
                         Rule::exists('marcas','id')
@@ -57,7 +56,6 @@ class ProductRequest extends FormRequest
              case 'PUT': {
                 return [
                     'name' => 'required|min:3',
-                    'description' => 'required|min:30',
                     'marca_id' => [
                         'required',
                         Rule::exists('marcas','id')

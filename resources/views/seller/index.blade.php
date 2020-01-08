@@ -61,11 +61,9 @@
               <select name="role_id" id="role_id" class="form-control">
                   @foreach(\App\Role::pluck('name', 'id') as $id => $role)
                   {{$role}}
-                      @if($role != ('admin'))
                         <option value="{{ $id }}">
                             {{$role}}
                         </option>
-                      @endif
                   @endforeach
               </select>
             </div>

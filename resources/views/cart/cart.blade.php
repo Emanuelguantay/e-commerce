@@ -7,9 +7,10 @@
 @section('content')
 	@if(!empty($cart))
 		<table class="table">
+			
 			<thead>
 				<tr>
-					<th class="text-center"> #</th>
+					<th class="text-center"> {{__("Imagen")}}</th>
 					<th class=" text-center">{{__("Nombre")}}</th>
 					<th class=" text-center">{{__("Talle")}}</th>
 					<th>{{__("Precio")}}</th>
@@ -62,7 +63,7 @@
 	            					data-href="{{route('cart.update', $detail->product_talle->id)}}"
 	            					data-id = "{{$detail->product_talle->id}}"
 	            				>
-	            					
+	            					{{__("-")}}
 	            				</a>
 	            				<input 
 	            					class="btn-simple btn btn-xs" 
@@ -81,7 +82,7 @@
 	            					data-id = "{{$detail->product_talle->id}}"
 	            					data-stock = "{{$detail->product_talle->stock}}" 
 	            				>
-	            					
+	            					{{__("+")}}
 	            				</a>
 	            				<!--route('cart-update', $detail->slug)-->
 	            				<!--<button class="btn btn-info btn-simple btn-xs">+</button>-->

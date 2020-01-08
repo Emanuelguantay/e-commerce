@@ -31,7 +31,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
+    
     /**
      * Create a new controller instance.
      *
@@ -57,7 +57,7 @@ class LoginController extends Controller
     }
     //accedemos al usuario que nos devolvio la plataforma
     public function handleProviderCallback (string $driver) {
-    
+        //dd($driver);
         if (!request()->has('code') || request()->has('denied')){
             //flash me permite almacenar en session un message,
             session()->flash('message',['danger',__('Inicio de sesión cancelado')]);

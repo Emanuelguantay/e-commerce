@@ -2,11 +2,8 @@
 
 @section('jumbotron')
 	@include('partials.jumbotron',['title' => __('Productos'), 'icon' => 'th'])
-@endsection
-
-@section('content')
 	<div class="pl-5 pr-5">
-		<hr> 
+	<hr> 
 		<p> 
 			<a href="{{route('productRanking.pdf')}}" class="btn btn-danger text-white">
 				<i class="fa fa-file-pdf-o"></i> {{__("Ranking productos")}}  
@@ -20,18 +17,34 @@
 				<i class="fa fa-file-pdf-o"></i> {{__("Ranking marcas")}}  
 			</a>
 			
-			<a href="#" class="btn btn-danger text-white">
+			<a href="{{route('indumentariasRanking.pdf')}}" class="btn btn-danger text-white">
 				<i class="fa fa-file-pdf-o"></i> {{__("Ranking Indumentaria")}}  
 			</a>  
 
-			<a href="#" class="btn btn-danger text-white">
+			<a href="{{route('GenerosRanking.pdf')}}" class="btn btn-danger text-white">
 				<i class="fa fa-file-pdf-o"></i> {{__("Ranking Generos")}}  
 			</a> 
 		</p>
+		<hr> 
+	</div>
+@endsection
 
-		<div class="row justify-content-center">
+@section('content')
+	
+	<div class="pl-5 pr-5">
+		
+		<a class="btn btn-primary" href="{{route('products.create')}}">
+						{{__("Crear producto")}}	
+					</a>
+		
+
+			<hr> 
+		@include('filter.filterProductAdmin')
+		<hr> 
+		<div class="row justify-content-left">
+
 			@forelse($products as $product)
-				<div class="col-md-9 offset-2 listing-block">
+				<div class="col-md-9 offset-1 listing-block">
 					<div class="media" style="height: 200px;">
 						<img
 							style="height: 200px; width: 300px;"

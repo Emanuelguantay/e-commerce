@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+USE App\Role;
 
 class RoleMiddleware
 {
@@ -16,7 +17,7 @@ class RoleMiddleware
     //seguridad
     public function handle($request, Closure $next, $role)
     {
-        if (auth()->user()->role_id !== (int) $role) {
+        if (auth()->user()->role_id == Role::CLIENTE) {
             abort(401,__("No puedes acceder a esta zona"));
         }
         return $next($request);

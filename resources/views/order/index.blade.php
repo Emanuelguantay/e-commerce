@@ -9,13 +9,13 @@
 	<div class="container">
       @if($orders->count()!=0)
       <br></br>
-
+      
       <!-- Table table-bordered -->
       <table id="datatable" class="table table-dark">
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Total</th>
+            <th scope="col">{{__("Moneda")}}Total</th>
             <th scope="col">{{__("Fecha")}}</th>
             <th scope="col">{{__("Estado")}}</th>
             <th scope="col">{{__("Acciones")}}</th>

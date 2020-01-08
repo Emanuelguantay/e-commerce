@@ -100,7 +100,7 @@
         <div class="modal-body">
           
             <div class="form-group">
-              <label >{{__("Nombre")}}</label>
+              <label >{{__("Nombre")}} {{$sizeData->name}}</label>
               <input type="text" name="bName" id="bName" class="form-control" placeholder="Ingrese el nombre">
             </div>
             <div class="form-group">

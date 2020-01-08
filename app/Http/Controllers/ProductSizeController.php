@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Product_talles;
-
+use App\Marcas;
+use App\Indumentarias;
+use App\Generos;
+use Exception;
 class ProductSizeController extends Controller
 {
     /**
@@ -15,7 +18,7 @@ class ProductSizeController extends Controller
      */
     public function index($id)
     {
-        $product = Product::find($id)->load('talles');
+        $product = Product::find($id)->load('talles','marca','indumentaria','genero');
         return view('productSize.index', compact('product'));
     }
 

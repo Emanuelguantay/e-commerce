@@ -10,7 +10,7 @@ use App\Http\Requests\ProductRequest;
 #use App\Mail\NewStudentInCourse;
 #use App\Http\Requests\CourseRequest;
 use App\Helpers\Helper;
-
+use Exception;
 class ProductController extends Controller
 {
     public function show (Product $product){
@@ -69,7 +69,6 @@ class ProductController extends Controller
 
     public function update(ProductRequest $product_request, Product $product){
         //dd($course_request);
-        
         if ($product_request->hasFile('picture')){
             \Storage::delete('products/'.$product->picture);
             $picture = Helper::uploadFile("picture",'products');
@@ -83,8 +82,21 @@ class ProductController extends Controller
 
     public function destroy (Product $product){
         try{
-            $product->delete();
+            $product->status = Product::REJECTED;
+            $product->save();
             return back()->with('message', ['success', __('Se ha eliminado correctamente')]);
+        } catch (\Exception $exception) {
+            return back()->with('message', ['danger', __('Error al eliminar')]);
+
+        }
+    }
+
+    public function alta (Product $product){
+        
+        try{
+            $product->status = Product::PUBLISHED;
+            $product->save();
+            return back()->with('message', ['success', __('Se ha actualizado correctamente')]);
         } catch (\Exception $exception) {
             return back()->with('message', ['danger', __('Error al eliminar')]);
 

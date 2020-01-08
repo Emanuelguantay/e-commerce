@@ -6,7 +6,6 @@
 
 @section('content')
 	<div class="container">
-
     <div class="row mb-4">
       <div class="col-md-12">
         <div class="card" style="background-image: url('{{ url('/images/jumbotron2.jpg') }}')">
@@ -17,8 +16,9 @@
             <div class="col-8 text-left">
               <h4>{{__("Id")}}: {{$product->id}}</h4>
               <h4> {{__("Nombre")}}: {{$product->name}}</h4>
-              <h4>{{__("Indumentaria")}}: {{$product->indumentaria_id}}</h4>
-              <h4>{{__("Genero")}}: {{$product->genero_id}}</h4>
+              <h4>{{__("Marca")}}: {{$product->marca->name}}</h4>
+              <h4>{{__("Indumentaria")}}: {{$product->indumentaria->name}}</h4>
+              <h4>{{__("Genero")}}: {{$product->genero->name}}</h4>
               <h4>{{__("Descripcion")}}: {{$product->description}}</h4>
               <h4>{{__("Precio")}}: $ {{$product->price}}</h4>
               <h4>{{__("Fecha de publicación")}}: {{$product->created_at->format('d/m/Y')}}</h4>

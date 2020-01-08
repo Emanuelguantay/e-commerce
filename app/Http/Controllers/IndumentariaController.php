@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Indumentaria;
+use Exception;
 
 class IndumentariaController extends Controller
 {

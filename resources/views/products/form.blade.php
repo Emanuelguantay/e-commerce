@@ -119,7 +119,6 @@
                                     id="description"
                                     class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
                                     name="description"
-                                    required
                                     rows="8"
                                 >{{ old('description') ?: $product->description }}</textarea>
 

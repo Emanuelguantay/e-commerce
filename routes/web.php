@@ -10,9 +10,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', 'HomeController@index')->name('home');
+
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
 Route::get('/list', 'HomeController@list')->name('homeList');
 
 Route::group(['prefix'=>'products'], function(){
@@ -25,6 +28,7 @@ Route::group(['prefix'=>'products'], function(){
 			Route::get('/{slug}/edit','ProductController@edit')->name('products.edit');
 			Route::put('/{product}/update','ProductController@update')->name('products.update');
 			Route::delete('/{product}/destroy','ProductController@destroy')->name('products.destroy');
+			Route::get('/{product}/alta','ProductController@alta')->name('products.alta');
 			Route::post('/{product}/aprobar','ProductController@aprobar')->name('products.aprobar');
 		});
 
@@ -59,9 +63,11 @@ Route::group(["prefix" => "profile","middleware"=>["auth"]], function(){
 });
 
 Route::group(['prefix'=>"vendedor","middleware" => ['auth']], function(){
-		Route::get('/products','VendedorController@products')->name('vendedor.products');
-	
+		//Route::get('/products','VendedorController@products')->name('vendedor.products');
+		
+		Route::get('/products','VendedorController@productlist')->name('vendedor.products');
 });
+
 
 
 //carrito de compra
@@ -123,6 +129,9 @@ Route::get('ranking', 'OrderController@rankingProductOrdenpdf')->name('productRa
 
 Route::get('productsintock', 'OrderController@ProductSinStockOrdenpdf')->name('productSinStock.pdf');
 Route::get('rankingMarcas', 'OrderController@RankingMarcasOrdenpdf')->name('marcasRanking.pdf');
+
+Route::get('rankingIndumentarias', 'OrderController@RankingIndumentariasOrdenpdf')->name('indumentariasRanking.pdf');
+Route::get('rankingGeneros', 'OrderController@RankingGenerosOrdenpdf')->name('GenerosRanking.pdf');
 
 //Route::get('/seller','VendedorController@index')->name('seller.index');
 //Route::post('/seller/{id}','VendedorController@destroy')->name('seller.destroy');
